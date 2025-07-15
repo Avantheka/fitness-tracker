@@ -6,21 +6,16 @@ A beginner-friendly full-stack fitness tracking app where users can log workouts
  
 ## Tech Stack
  
-| Area       | Technology           |
+Frontend - React.js, Vite
 
-|------------|----------------------|
+Backend - Node.js, lowdb 
 
-| Frontend   | React.js, Vite, Axios |
+Storage - JSON file via lowdb
 
-| Backend    | Node.js, lowdb |
+Charts - Chart.js or Recharts
 
-| Storage    | JSON file via lowdb  |
-
-| Charts     | Chart.js or Recharts |
-
-| Deployment | Render / Railway     |
+Deployment - Render/Railway
  
----
  
 ##  Features
  
