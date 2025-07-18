@@ -5,6 +5,5 @@ exports.registerUser = (req, res) => {
     return res.status(400).json({ message: "All fields required" });
   }
 
-  // Later: add database logic
   return res.status(201).json({ message: "User registered successfully" });
 };
