@@ -1,5 +1,6 @@
 import { useState } from "react";
-import'./Auth.css';
+import './Auth.css';
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -11,14 +12,31 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="auth-form-container">
       <h2>Login</h2>
-      <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
-      <br />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
-      <br />
-      <button type="submit">Login</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+        />
+        <br />
+        <input
+          type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+        />
+        <br />
+        {/** You can add error message display here too if needed */}
+        <button type="submit">Login</button>
+      </form>
+
+      <p>Don't have an account? <Link to="/register">Register here</Link></p>
+    </div>
   );
 }
 
