@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
 
 // Register function
-exports.registerUser = (req, res) => {
+exports.registerUser = (req, res) => { 
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
