@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Auth.css";
 import axios from "../api/axios";
-
+ 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -10,32 +10,32 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false); 
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted");
-
+ 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-
+ 
     setError("");
     setSuccess("");
-    setIsSubmitting(true); 
+    setIsSubmitting(true);
     try {
       console.log("Axios called");
-
+ 
       const response = await axios.post("/register", {
         name,
         email,
         password,
       });
-
+ 
       console.log("Registration success:", response.data);
       setSuccess("Registration successful!");
-
+ 
       setName("");
       setEmail("");
       setPassword("");
@@ -44,10 +44,10 @@ const Register = () => {
       console.error("Registration failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Registration failed");
     } finally {
-      setIsSubmitting(false); 
+      setIsSubmitting(false);
     }
   };
-
+ 
   return (
     <div className="auth-form-container">
       <h2>Create Account</h2>
@@ -80,7 +80,7 @@ const Register = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-
+ 
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">{success}</p>}
         <button
@@ -95,5 +95,7 @@ const Register = () => {
     </div>
   );
 };
-
+ 
 export default Register;
+ 
+ 
