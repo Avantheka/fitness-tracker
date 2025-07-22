@@ -7,7 +7,6 @@ function App() {
   return (
     <Router>
       <div>
-        <h1>Fitness Tracker</h1>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
