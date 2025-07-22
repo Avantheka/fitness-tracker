@@ -14,60 +14,58 @@ function Login() {
 
     if (!email || !password) {
       setError("Please fill in all fields");
-      setSuccess('');
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
       return;
     }
 
     try {
-      const response = await axios.post("/login", {
-        email,
-        password,
-      });
-
+      const response = await axios.post("/login", { email, password });
       console.log("Login success:", response.data);
-
-      setError('');
       setSuccess("Login successful!");
-
-      setEmail('');
-      setPassword('');
-
+      setError("");
+      setEmail("");
+      setPassword("");
     } catch (err) {
       console.error("Login failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Login failed");
-      setSuccess('');
+      setSuccess("");
     }
   };
 
   return (
-    <div className="auth-form-container">
-      <h2>Login</h2>
+    <div className="page-container">
+      <h1>Fitness Tracker</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <br />
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        <br />
+      <div className="auth-form-container">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+          />
 
-        {error && <p className="error-message">{error}</p>}
-        {success && <p className="success-message">{success}</p>}
+          {error && <p className="error-message">{error}</p>}
+          {success && <p className="success-message">{success}</p>}
 
-        <button type="submit">Login</button>
-      </form>
+          <button type="submit">Login</button>
+        </form>
 
-      <p>Don't have an account? <Link to="/register">Register here</Link></p>
+        <p>Don't have an account? <Link to="/register">Register here</Link></p>
+      </div>
     </div>
   );
 }

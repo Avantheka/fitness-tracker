@@ -1,15 +1,13 @@
-/* Main layout wrapper for center alignment */
 .page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #222; /* dark background */
+  background-color: #222; 
   padding: 20px;
 }
 
-/* Title styling */
 .page-container h1 {
   font-size: 42px;
   color: #fff;
@@ -18,9 +16,8 @@
   font-weight: 700;
 }
 
-/* Auth form container */
 .auth-form-container {
-  width: 100%; 
+  width: 100%;
   max-width: 400px;
   padding: 40px;
   border: 1px solid #ddd;
@@ -31,13 +28,11 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Form title */
 .auth-form-container h2 {
   text-align: center;
   margin-bottom: 25px;
@@ -45,14 +40,12 @@
   font-size: 28px;
 }
 
-/* Form layout */
-form {
+.auth-form-container form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Input fields */
 .auth-form-container input {
   padding: 12px;
   border-radius: 8px;
@@ -60,12 +53,12 @@ form {
   outline: none;
   font-size: 16px;
   transition: border 0.3s ease;
-  background-color: #fff; 
+  background-color: #fff;
   color: #333;
 }
 
 .auth-form-container input::placeholder {
-  color: #888; 
+  color: #888;
 }
 
 .auth-form-container input:focus {
@@ -73,7 +66,6 @@ form {
   box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
 }
 
-/* Register button */
 .auth-form-container button {
   padding: 12px;
   background-color: #1976d2;
@@ -89,7 +81,6 @@ form {
   background-color: #125da5;
 }
 
-/* Login link */
 .auth-form-container a {
   text-align: center;
   color: #1976d2;
@@ -109,7 +100,29 @@ form {
   font-size: 14px;
   margin-top: -5px;
 }
-/* Dashboard.css */
+
+.success-message {
+  color: green;
+  text-align: center;
+  font-size: 14px;
+  margin-top: -5px;
+}
+
+@media (max-width: 480px) {
+  .auth-form-container {
+    padding: 20px;
+  }
+
+  .auth-form-container input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .auth-form-container button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
 
 .dashboard-wrapper {
   display: flex;
@@ -154,7 +167,6 @@ form {
   justify-content: space-between;
   align-items: center;
 }
-
 
 .app-title {
   margin: 0;
