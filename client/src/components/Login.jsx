@@ -29,13 +29,17 @@ function Login() {
       const response = await axios.post("/login", { email, password });
       console.log("Login success:", response.data);
 
+      // ✅ Save JWT token in localStorage
+      localStorage.setItem("token", response.data.token);
+
       setSuccess("Login successful!");
       setError("");
       setEmail("");
       setPassword("");
 
+      // ✅ Redirect to dashboard
       setTimeout(() => {
-        window.location.href = '/dashboard'; 
+        window.location.href = '/dashboard';
       }, 1500);
 
     } catch (err) {
