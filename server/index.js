@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api", authRoutes);        
-app.use("/api", dashboardRoutes);   
+app.use("/api", dashboardRoutes);   // /api/dashboard
 
 app.get("/", (req, res) => {
   res.send("API is running");
