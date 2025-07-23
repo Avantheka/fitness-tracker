@@ -3,12 +3,15 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const authRoutes = require("./routes/authRoutes");          
+const dashboardRoutes = require("./routes/dashboardRoutes"); 
 
 app.use(cors());
 app.use(express.json());
 
-const authRoutes = require("./routes/authRoutes");
-app.use("/api", authRoutes);  
+// Routes
+app.use("/api", authRoutes);        
+app.use("/api", dashboardRoutes);   
 
 app.get("/", (req, res) => {
   res.send("API is running");
