@@ -96,13 +96,13 @@
 }
 
 .auth-form-container input:focus {
-  border-color: #1976d2;
+  border-color: #cd3d30;
   box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
 }
 
 .auth-form-container button {
   padding: 12px;
-  background-color: #1976d2;
+  background-color: #cd3d30;
   color: #fff;
   font-size: 16px;
   border: none;
@@ -112,12 +112,12 @@
 }
 
 .auth-form-container button:hover {
-  background-color: #125da5;
+  background-color: #cd3d30;
 }
 
 .auth-form-container a {
   text-align: center;
-  color: #1976d2;
+  color: #cd3d30;
   text-decoration: none;
   font-weight: 500;
   margin-top: 10px;
@@ -134,7 +134,7 @@
 }
 
 .auth-form-container a:hover {
-  color: #0d47a1;
+  color: #cd3d30;
 }
 
 .error-message {
@@ -172,7 +172,7 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  background-color: #f9f9f9;
+  background-color: #030303;
   min-height: 100vh;
   min-width: 198vh;
 }
@@ -186,30 +186,42 @@
 }
 
 .greeting-card {
-  background-color: #f0f4ff;
+  background-color: #cd3d30;
   padding: 20px 30px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 300px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
 }
 
+.goal-container {
+
+  text-align: center;
+}
 .goal-card {
-  background-color: #fff4e6;
+  background-color: #f66f63;
   padding: 20px 30px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+  text-align:justify
+
 }
 
 .app-header {
   background-color: #1e1e2f;
   color: #fff;
-  padding: 15px 30px;
+  padding: 30px 30px;
+  margin-bottom: 50px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .app-title {
