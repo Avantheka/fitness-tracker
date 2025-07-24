@@ -1,5 +1,6 @@
-const express = require("express");
-const router = express.Router();
+import { Router } from "express";
+
+const router = Router();
 
 router.get("/dashboard", (req, res) => {
   res.status(200).json({
@@ -13,4 +14,4 @@ router.get("/dashboard", (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;
