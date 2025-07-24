@@ -96,13 +96,12 @@
 }
 
 .auth-form-container input:focus {
-  border-color: #cd3d30;
   box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
 }
 
 .auth-form-container button {
   padding: 12px;
-  background-color: #cd3d30;
+  background: linear-gradient(135deg, #2ECC71, #3498DB);
   color: #fff;
   font-size: 16px;
   border: none;
@@ -112,14 +111,15 @@
 }
 
 .auth-form-container button:hover {
-  background-color: #cd3d30;
+  background-color: #3062cd;
 }
 
 .auth-form-container a {
   text-align: center;
-  color: #cd3d30;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
+  font-style: italic;
   margin-top: 10px;
   transition: color 0.3s;
 }
@@ -134,7 +134,7 @@
 }
 
 .auth-form-container a:hover {
-  color: #cd3d30;
+  color: #304acd;
 }
 
 .error-message {
@@ -171,25 +171,32 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 20px;
+  min-width:200vh;
+  background-color: #000000;
 }
  
 .dashboard-content {
-  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:larger;
+
 }
  
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 70px;
 }
  
 .goal-card {
-  background: #f3f3f3;
+  background: linear-gradient(135deg, #2ECC71, #3498DB);
   border-radius: 12px;
   padding: 15px;
   text-align: center;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
  
 .goal-icon {
@@ -198,11 +205,12 @@
 }
  
 .goal-label {
-  font-weight: bold;
+  font-weight: bolder;
+  font-size:large
 }
  
 .goal-value {
-  color: #1976d2;
+  color: #000000;
 }
  
 .dashboard-extras {
@@ -211,9 +219,9 @@
 }
  
 .tip {
-  margin-bottom: 15px;
+  margin-bottom: 70px;
   font-style: italic;
-  color: #555;
+  color: #929191;
 }
  
 .reminder {
@@ -224,24 +232,28 @@
 .dashboard-links button {
   margin: 0 10px;
   padding: 10px 20px;
-  background: #1976d2;
-  color: white;
+  background: #ffffff;
+  color: #000000;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s ease;
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
 }
  
 .dashboard-links button:hover {
-  background: #145ea8;
+  background: linear-gradient(135deg, #2ECC71, #3498DB);
+  color: white;
 }
 
 .app-header {
-  background-color: #1e1e2f;
+  /* background-color: #1e1e2f; */
+  background: linear-gradient(135deg, #272626, #000000);
   color: #fff;
   padding: 30px 30px;
   margin-bottom: 50px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -265,8 +277,8 @@
 
 .logout-btn {
   padding: 6px 12px;
-  background-color: #ff4d4f;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -274,5 +286,5 @@
 }
 
 .logout-btn:hover {
-  background-color: #e04343;
-}
+  background: linear-gradient(135deg, #2ECC71, #3498DB);
+  color: white;}
