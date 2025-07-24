@@ -18,22 +18,36 @@ const GoalCard = ({ icon, label, goal }) => (
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
-  // Route protection: redirect if no token
-  if (!localStorage.getItem("token")) {
-    return <Navigate to="/" />;
-  }
-
-  // Fetch data from backend
   useEffect(() => {
-    axios.get("/dashboard")
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setShouldRedirect(true);
+      return;
+    }
+
+    axios
+      .get("/dashboard", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         setData(res.data);
       })
       .catch((err) => {
         console.error("Failed to load dashboard:", err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
+
+  if (shouldRedirect) {
+    return <Navigate to="/" replace />;
+  }
+
+  if (loading) return <p style={{ textAlign: "center" }}>Loading...</p>;
 
   return (
     <div className="dashboard-wrapper">
@@ -58,8 +72,8 @@ const Dashboard = () => {
           </div>
 
           <div className="dashboard-links">
-            <button onClick={() => window.location.href = "/tracking"}>Track Workout</button>
-            <button onClick={() => window.location.href = "/progress"}>View Progress</button>
+            <button onClick={() => (window.location.href = "/tracking")}>Track Workout</button>
+            <button onClick={() => (window.location.href = "/progress")}>View Progress</button>
           </div>
         </div>
       </div>
