@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon index.js --ignore db/db.json",
     "start": "node index.js"
   },
   "keywords": [],
