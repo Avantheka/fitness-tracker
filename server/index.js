@@ -1,4 +1,4 @@
-import express from "express";
+import express from "express"; 
 import cors from "cors";
 
 import authRoutes from "./routes/authRoutes.js";
@@ -7,14 +7,11 @@ import trackingRoutes from "./routes/trackingRoutes.js";
 
 import { initDB } from "./db/db.js"; 
 import db from "./db/db.js"; 
-import path from 'path';
-
-const adapter = new JSONFile(path.resolve('./server/db/db.json'));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-await initDB(); 
+await initDB();  
 
 app.use(cors());
 app.use(express.json());

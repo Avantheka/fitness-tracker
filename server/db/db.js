@@ -1,19 +1,22 @@
+// server/db/db.js
 import { Low } from 'lowdb';
 import { JSONFile } from 'lowdb/node';
+import { fileURLToPath } from 'url';
 import path from 'path';
 
-const adapter = new JSONFile(path.resolve('./server/db/db.json')); 
-const db = new Low(adapter);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const file = path.join(__dirname, 'db.json');
+const adapter = new JSONFile(file);
+
+const defaultData = { tracking: [], users: [] };
+const db = new Low(adapter, defaultData);
 
 export async function initDB() {
   await db.read();
-
-  db.data ||= {
-    tracking: [],
-    users: []
-  };
-
   await db.write();
+  console.log("initDB: DB initialized with data", db.data);
 }
 
 export default db;
