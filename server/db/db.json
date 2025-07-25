@@ -32,6 +32,17 @@
       "waterIntake": 2.5,
       "weight": 60,
       "waist": 28
+    },
+    {
+      "id": 1753439492162,
+      "date": "2025-07-25T10:31:32.162Z",
+      "cardioType": "running",
+      "cardioDuration": "15",
+      "cyclingDistance": "3 km",
+      "cyclingDuration": "30 minutes",
+      "waterIntake": "2",
+      "weight": "55kg",
+      "waist": "38cm"
     }
   ],
   "users": []

@@ -289,14 +289,30 @@
   background: linear-gradient(135deg, #2ECC71, #3498DB);
   color: white;}
 
+.tracking-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 200vh;
+  background-color: #000000; 
+  padding: 20px;
+}
   .tracking-form-container {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 25px;
+  width: 100%;
+  max-width: 500px;   
+  margin: 40px auto;  
+  padding-left: 55px;
+  padding-right: 80px;  
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: center;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background: #f8f9fa;
+  background: #ffffff;
+  color: #000000;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .tracking-form-container h2 {
@@ -313,9 +329,11 @@
   padding: 10px;
   margin-top: 8px;
   margin-bottom: 12px;
+  background-color: #ffffff; /* dark background for the input */
+  color: #ccc;            /* input text color */
   border: 1px solid #ccc;
   border-radius: 6px;
-}
+  }
 
 .button-group {
   display: flex;
@@ -326,7 +344,7 @@
 .button-group button {
   flex: 1;
   padding: 10px;
-  background-color: #1976d2;
+  background: linear-gradient(135deg, #2ECC71, #3498DB);
   color: white;
   border: none;
   border-radius: 6px;
