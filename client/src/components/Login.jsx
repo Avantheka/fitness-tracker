@@ -3,6 +3,9 @@ import './Auth.css';
 import { Link } from "react-router-dom";
 import axios from '../api/axios';
 
+import { auth, provider } from "../firebase"; // Import Firebase config
+import { signInWithPopup } from "firebase/auth"; // Import Google sign-in
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +15,6 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic client-side validation
     if (!email || !password) {
       setError("Please fill in all fields");
       setSuccess("");
@@ -29,15 +31,12 @@ function Login() {
       const response = await axios.post("/login", { email, password });
       console.log("Login success:", response.data);
 
-      // ✅ Save JWT token in localStorage
       localStorage.setItem("token", response.data.token);
-
       setSuccess("Login successful!");
       setError("");
       setEmail("");
       setPassword("");
 
-      // ✅ Redirect to dashboard
       setTimeout(() => {
         window.location.href = '/dashboard';
       }, 1500);
@@ -45,6 +44,30 @@ function Login() {
     } catch (err) {
       console.error("Login failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Login failed");
+      setSuccess("");
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      const token = await user.getIdToken();
+
+      console.log("Google Sign-In successful:", user);
+
+
+      localStorage.setItem("token", token);
+      setSuccess("Google login successful!");
+      setError("");
+
+      setTimeout(() => {
+        window.location.href = '/dashboard';
+      }, 1500);
+
+    } catch (err) {
+      console.error("Google Sign-In Error:", err.message);
+      setError("Google Sign-In failed");
       setSuccess("");
     }
   };
@@ -58,7 +81,7 @@ function Login() {
           Achieve a healthier lifestyle with personalized insights, easy tracking, and real-time progress updates.
         </p>
       </div>
-      
+
       <div className="auth-form-container">
         <h2>Login</h2>
 
@@ -83,6 +106,10 @@ function Login() {
 
           <button type="submit">Login</button>
         </form>
+
+        <button onClick={handleGoogleSignIn} className="google-signin-btn">
+          Sign in with Google
+        </button>
 
         <p>Don't have an account? <Link to="/register">Register here</Link></p>
       </div>
