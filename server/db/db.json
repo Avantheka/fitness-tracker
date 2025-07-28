@@ -32,6 +32,13 @@
       "waterIntake": 2.5,
       "weight": 60,
       "waist": 28
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-28",
+      "cardioType": "Running",
+      "cardioDuration": "30 min",
+      "waterIntake": "3L"
     }
   ],
   "users": []
