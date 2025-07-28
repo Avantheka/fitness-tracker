@@ -126,6 +126,26 @@
       "waist": "36"
     },
     {
+      "date": "2025-07-25",
+      "cardioType": "High Knees",
+      "cardioDuration": "15",
+      "cyclingDistance": "30",
+      "cyclingDuration": "45",
+      "waterIntake": "13",
+      "weight": "65",
+      "waist": "39"
+    },
+    {
+      "date": "2025-07-20",
+      "cardioType": "Burpees",
+      "cardioDuration": "25",
+      "cyclingDistance": "17",
+      "cyclingDuration": "50",
+      "waterIntake": "17",
+      "weight": "40",
+      "waist": "38"
+    },
+    {
       "date": "2025-07-28",
       "cardioType": "jogging",
       "cardioDuration": "20",
