@@ -14,10 +14,12 @@ const Tracking = () => {
     waist: ""
   });
 
+  const [date, setDate] = useState(() => new Date().toISOString().split('T')[0]);
+  const [lastSubmittedDate, setLastSubmittedDate] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // Protect route: if no token, redirect to login
+  // Redirect to login if no token
   if (!localStorage.getItem("token")) {
     return <Navigate to="/" replace />;
   }
@@ -39,6 +41,7 @@ const Tracking = () => {
       weight: "",
       waist: ""
     });
+    setDate(new Date().toISOString().split('T')[0]);
     setError("");
     setSuccess("");
   };
@@ -46,6 +49,7 @@ const Tracking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Basic validation
     if (!formData.cardioDuration || !formData.waterIntake) {
       setError("Cardio Duration and Water Intake are required");
       setSuccess("");
@@ -58,16 +62,26 @@ const Tracking = () => {
       return;
     }
 
+    const dataToSubmit = { ...formData, date };
+
     try {
-      const response = await axios.post("/track", formData, {
+      const response = await axios.post("/track", dataToSubmit, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      console.log("Tracking saved:", response.data);
-      setSuccess("Tracking data saved successfully!");
-      setError("");
-      handleClear();
+
+      if (response.status === 201) {
+        console.log("Tracking saved:", response.data);
+        setSuccess("Tracking data saved successfully!");
+        setError("");
+        setLastSubmittedDate(date);
+        handleClear(); // Reset form after successful submission
+      } else {
+        setError("Unexpected response from server");
+        setSuccess("");
+      }
+
     } catch (err) {
       console.error("Tracking failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Something went wrong");
@@ -84,6 +98,15 @@ const Tracking = () => {
         {success && <p className="success-message">{success}</p>}
 
         <form onSubmit={handleSubmit}>
+          <label htmlFor="date">Date:</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+
           <h3>🏃 Cardio</h3>
           <input
             type="text"
@@ -141,13 +164,16 @@ const Tracking = () => {
             onChange={handleChange}
           />
 
+          <hr style={{ margin: "20px 0" }} />
           <div className="button-group">
             <button type="submit">Submit</button>
-            <button type="button" onClick={handleClear}>
-              Clear
-            </button>
+            <button type="button" onClick={handleClear}>Clear</button>
           </div>
         </form>
+
+        {lastSubmittedDate && (
+          <p><strong>Last Submitted:</strong> {lastSubmittedDate}</p>
+        )}
       </div>
     </div>
   );

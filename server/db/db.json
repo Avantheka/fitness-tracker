@@ -34,21 +34,86 @@
       "waist": 28
     },
     {
+      "id": 1753439492162,
       "email": "test@example.com",
       "date": "2025-07-28",
       "cardioType": "Running",
-      "cardioDuration": "30 min",
-      "waterIntake": "3L"
-
-      "id": 1753439492162,
-      "date": "2025-07-25T10:31:32.162Z",
+      "cardioDuration": 15,
+      "cyclingDistance": 3,
+      "cyclingDuration": 30,
+      "waterIntake": 2,
+      "weight": 55,
+      "waist": 38
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "Running",
+      "cardioDuration": "32",
+      "cyclingDistance": "12 km",
+      "cyclingDuration": "30",
+      "waterIntake": "12",
+      "weight": "45",
+      "waist": "38 cm"
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "Running",
+      "cardioDuration": "30",
+      "cyclingDistance": "5 km",
+      "cyclingDuration": "30 minutes",
+      "waterIntake": "12",
+      "weight": "50",
+      "waist": "37 cm"
+    },
+    {
+      "date": "2025-07-28",
       "cardioType": "running",
       "cardioDuration": "15",
-      "cyclingDistance": "3 km",
-      "cyclingDuration": "30 minutes",
-      "waterIntake": "2",
-      "weight": "55kg",
-      "waist": "38cm"
+      "cyclingDistance": "35",
+      "cyclingDuration": "60",
+      "waterIntake": "15",
+      "weight": "50",
+      "waist": "37"
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "walking",
+      "cardioDuration": "30",
+      "cyclingDistance": "30",
+      "cyclingDuration": "25",
+      "waterIntake": "12",
+      "weight": "60",
+      "waist": "40"
+    },
+    {
+      "date": "2025-07-01",
+      "cardioType": "walking",
+      "cardioDuration": "30",
+      "cyclingDistance": "30",
+      "cyclingDuration": "30",
+      "waterIntake": "15",
+      "weight": "55",
+      "waist": "37"
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "Jogging",
+      "cardioDuration": "40",
+      "cyclingDistance": "10",
+      "cyclingDuration": "12",
+      "waterIntake": "10",
+      "weight": "55",
+      "waist": "35"
+    },
+    {
+      "date": "2025-07-02",
+      "cardioType": "Jump Rope",
+      "cardioDuration": "30",
+      "cyclingDistance": "15",
+      "cyclingDuration": "30",
+      "waterIntake": "15",
+      "weight": "52",
+      "waist": "38"
     }
   ],
   "users": []
