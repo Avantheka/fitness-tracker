@@ -114,6 +114,16 @@
       "waterIntake": "15",
       "weight": "52",
       "waist": "38"
+    },
+    {
+      "date": "2025-07-26",
+      "cardioType": "jogging",
+      "cardioDuration": "20",
+      "cyclingDistance": "5",
+      "cyclingDuration": "45",
+      "waterIntake": "1",
+      "weight": "58",
+      "waist": "36"
     }
   ],
   "users": []
