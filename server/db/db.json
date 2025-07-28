@@ -34,12 +34,6 @@
       "waist": 28
     },
     {
-      "email": "test@example.com",
-      "date": "2025-07-28",
-      "cardioType": "Running",
-      "cardioDuration": "30 min",
-      "waterIntake": "3L"
-
       "id": 1753439492162,
       "date": "2025-07-25T10:31:32.162Z",
       "cardioType": "running",
