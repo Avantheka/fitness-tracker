@@ -11,10 +11,13 @@ const Tracking = () => {
     cyclingDuration: "",
     waterIntake: "",
     weight: "",
-    waist: ""
+    waist: "",
   });
 
-  const [date, setDate] = useState(() => new Date().toISOString().split('T')[0]);
+  const [date, setDate] = useState(() =>
+    new Date().toISOString().split("T")[0]
+  );
+
   const [lastSubmittedDate, setLastSubmittedDate] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -27,7 +30,7 @@ const Tracking = () => {
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -39,17 +42,16 @@ const Tracking = () => {
       cyclingDuration: "",
       waterIntake: "",
       weight: "",
-      waist: ""
+      waist: "",
     });
-    setDate(new Date().toISOString().split('T')[0]);
+    setDate(new Date().toISOString().split("T")[0]); // reset date
     setError("");
-    setSuccess("");
+    // setSuccess("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.cardioDuration || !formData.waterIntake) {
       setError("Cardio Duration and Water Intake are required");
       setSuccess("");
@@ -73,15 +75,14 @@ const Tracking = () => {
 
       if (response.status === 201) {
         console.log("Tracking saved:", response.data);
-        setSuccess("Tracking data saved successfully!");
+        setSuccess("✅ Tracking data saved!");
         setError("");
         setLastSubmittedDate(date);
-        handleClear(); // Reset form after successful submission
+        handleClear(); // ✅ Clear form on success
       } else {
         setError("Unexpected response from server");
         setSuccess("");
       }
-
     } catch (err) {
       console.error("Tracking failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Something went wrong");
@@ -167,12 +168,16 @@ const Tracking = () => {
           <hr style={{ margin: "20px 0" }} />
           <div className="button-group">
             <button type="submit">Submit</button>
-            <button type="button" onClick={handleClear}>Clear</button>
+            <button type="button" onClick={handleClear}>
+              Clear
+            </button>
           </div>
         </form>
 
         {lastSubmittedDate && (
-          <p><strong>Last Submitted:</strong> {lastSubmittedDate}</p>
+          <p>
+            <strong>Last Submitted:</strong> {lastSubmittedDate}
+          </p>
         )}
       </div>
     </div>
