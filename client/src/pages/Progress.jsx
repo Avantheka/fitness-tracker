@@ -19,7 +19,6 @@ const Progress = () => {
   const email = "test@example.com";
 
   useEffect(() => {
-    // Only fetch if both dates are selected
     if (!startDate || !endDate) return;
 
     setLoading(true);
@@ -36,7 +35,8 @@ const Progress = () => {
         if (res.data && res.data.labels) {
           const chartData = res.data.labels.map((label, index) => ({
             date: label,
-            value: res.data.cardio[index] || 0, 
+            cardio: res.data.cardio[index] || 0,
+            waterIntake: res.data.waterIntake[index] || 0,
           }));
           setData(chartData);
         } else {
@@ -84,7 +84,18 @@ const Progress = () => {
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Line type="monotone" dataKey="value" stroke="#8884d8" />
+            <Line
+              type="monotone"
+              dataKey="cardio"
+              stroke="#8884d8"
+              name="Cardio Minutes"
+            />
+            <Line
+              type="monotone"
+              dataKey="waterIntake"
+              stroke="#82ca9d"
+              name="Water Intake"
+            />
           </LineChart>
         </ResponsiveContainer>
       )}
