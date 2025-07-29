@@ -44,9 +44,8 @@ const Tracking = () => {
       weight: "",
       waist: "",
     });
-    setDate(new Date().toISOString().split("T")[0]); // reset date
+    setDate(new Date().toISOString().split("T")[0]);
     setError("");
-    // setSuccess("");
   };
 
   const handleSubmit = async (e) => {
@@ -64,7 +63,8 @@ const Tracking = () => {
       return;
     }
 
-    const dataToSubmit = { ...formData, date };
+    const formattedDate = new Date(date).toISOString().slice(0, 10);
+    const dataToSubmit = { ...formData, date: formattedDate, email: "test@example.com" };
 
     try {
       const response = await axios.post("/track", dataToSubmit, {
@@ -74,17 +74,15 @@ const Tracking = () => {
       });
 
       if (response.status === 201) {
-        console.log("Tracking saved:", response.data);
-        setSuccess("✅ Tracking data saved!");
+        setSuccess(" Tracking data saved!");
         setError("");
-        setLastSubmittedDate(date);
-        handleClear(); // ✅ Clear form on success
+        setLastSubmittedDate(formattedDate);
+        handleClear();
       } else {
         setError("Unexpected response from server");
         setSuccess("");
       }
     } catch (err) {
-      console.error("Tracking failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Something went wrong");
       setSuccess("");
     }

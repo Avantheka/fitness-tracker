@@ -4,6 +4,7 @@ import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import trackingRoutes from "./routes/trackingRoutes.js";
+import progressRoutes from "./routes/progressRoutes.js";
 
 import { initDB } from "./db/db.js"; 
 import db from "./db/db.js"; 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use("/api", authRoutes);
 app.use("/api", dashboardRoutes);
 app.use("/api", trackingRoutes);
+app.use("/api", progressRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running");

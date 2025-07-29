@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../api/axios";
 import {
   LineChart,
   Line,
@@ -23,12 +23,15 @@ const Progress = () => {
 
     setLoading(true);
 
+    const formattedStart = new Date(startDate).toISOString().slice(0, 10);
+    const formattedEnd = new Date(endDate).toISOString().slice(0, 10);
+
     axios
       .get("/progress", {
         params: {
           email: email,
-          start: startDate,
-          end: endDate,
+          start: formattedStart,
+          end: formattedEnd,
         },
       })
       .then((res) => {
