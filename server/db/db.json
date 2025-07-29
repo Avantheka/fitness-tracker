@@ -154,6 +154,17 @@
       "waterIntake": "1",
       "weight": "58",
       "waist": "36"
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-27",
+      "cardioType": "Running",
+      "cardioDuration": "30",
+      "cyclingDistance": "5.2",
+      "cyclingDuration": "15",
+      "waterIntake": "3",
+      "weight": "60",
+      "waist": "30"
     }
   ],
   "users": []

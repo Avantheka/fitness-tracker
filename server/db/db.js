@@ -1,4 +1,3 @@
-// server/db/db.js
 import { Low } from 'lowdb';
 import { JSONFile } from 'lowdb/node';
 import { fileURLToPath } from 'url';
@@ -15,6 +14,9 @@ const db = new Low(adapter, defaultData);
 
 export async function initDB() {
   await db.read();
+
+  db.data ||= defaultData;
+
   await db.write();
   console.log("initDB: DB initialized with data", db.data);
 }
