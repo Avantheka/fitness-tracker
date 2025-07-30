@@ -156,7 +156,6 @@
       "waist": "36"
     },
     {
-<<<<<<< HEAD
       "date": "2025-07-27",
       "cardioType": "jummp rope",
       "cardioDuration": "15",
@@ -165,7 +164,8 @@
       "waterIntake": "2 ",
       "weight": "50",
       "waist": "32"
-=======
+    },
+    {
       "email": "test@example.com",
       "date": "2025-07-27",
       "cardioType": "Running",
@@ -197,7 +197,6 @@
       "waterIntake": "13",
       "weight": "",
       "waist": ""
->>>>>>> 2f45b385ff3a5ff4191b6c843f7726f7801f9ac3
     }
   ],
   "users": []
