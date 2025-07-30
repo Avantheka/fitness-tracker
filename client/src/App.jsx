@@ -4,7 +4,7 @@ import Register from "./components/Register";
 import Dashboard from "./pages/Dashboard"; 
 import Tracking from "./pages/Tracking";
 import Progress from "./pages/Progress";
-import PrivateRoute from "./components/PrivateRoute"; // ✅ Import PrivateRoute
+import PrivateRoute from "./components/PrivateRoute"; 
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           
-          {/* 🔒 Protected Routes */}
+          {/*  Protected Routes */}
           <Route
             path="/dashboard"
             element={
