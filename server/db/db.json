@@ -156,6 +156,16 @@
       "waist": "36"
     },
     {
+      "date": "2025-07-27",
+      "cardioType": "jummp rope",
+      "cardioDuration": "15",
+      "cyclingDistance": "2",
+      "cyclingDuration": "10",
+      "waterIntake": "2 ",
+      "weight": "50",
+      "waist": "32"
+    },
+    {
       "email": "test@example.com",
       "date": "2025-07-27",
       "cardioType": "Running",
