@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "../api/axios"; 
+import { Link, useNavigate } from "react-router-dom"; // ✅ added useNavigate
+import axios from "../api/axios";
 
 function Register() {
   const [name, setName] = useState("");
@@ -10,6 +10,8 @@ function Register() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const navigate = useNavigate(); // ✅ to redirect after success
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,12 +40,19 @@ function Register() {
         email,
         password,
       });
+
       console.log("Register success:", response.data);
-      setSuccess("Registration successful! You can now log in.");
+      setSuccess("Registration successful! Redirecting to login...");
       setName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
+
+      
+      setTimeout(() => {
+        navigate("/"); // or navigate("/login")
+      }, 2000);
+
     } catch (err) {
       console.error("Register failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Registration failed");

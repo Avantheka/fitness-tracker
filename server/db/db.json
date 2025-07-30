@@ -197,7 +197,57 @@
       "waterIntake": "13",
       "weight": "",
       "waist": ""
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-30",
+      "cardioType": "walking",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-30",
+      "cardioType": "walking",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "anu@gmail.com",
+      "date": "2025-07-30",
+      "cardioType": "walking",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "anu@gmail.com",
+      "date": "2025-07-30",
+      "cardioType": "running",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "name": "anu",
+      "email": "anu@gmail.com",
+      "password": "$2b$10$WMX1T5H4amwTDkbSvdWkAOpS784QJD6GXO.ea9j/NAPX7jCLCa63m"
+    }
+  ]
 }

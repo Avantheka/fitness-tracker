@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import axios from "../api/axios";
 
 import Header from "../components/Header";
@@ -20,7 +20,6 @@ const Dashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [shouldRedirect, setShouldRedirect] = useState(false);
-  const navigate = useNavigate(); // 🧭 for programmatic navigation
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -44,12 +43,6 @@ const Dashboard = () => {
       });
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("email");
-    navigate("/"); // Redirect to login
-  };
-
   if (shouldRedirect) {
     return <Navigate to="/" replace />;
   }
@@ -59,13 +52,6 @@ const Dashboard = () => {
   return (
     <div className="dashboard-wrapper">
       <Header />
-
-      {/* 🚪 Logout button */}
-      <div style={{ textAlign: "right", margin: "1rem" }}>
-        <button onClick={handleLogout} style={{ padding: "8px 16px", backgroundColor: "#ff5c5c", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" }}>
-          Logout
-        </button>
-      </div>
 
       <div className="dashboard-content">
         <GreetingCard name={data?.name || "User"} />

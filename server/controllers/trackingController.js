@@ -27,7 +27,7 @@ export const saveTrackingData = async (req, res) => {
   await db.read();
 
   db.data.tracking.push({
-    email,              // ✅ Taken from token, not body
+    email,              
     date,
     cardioType,
     cardioDuration,
