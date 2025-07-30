@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Auth.css"; // or create a new CSS file if needed
+import "../components/Auth.css"; 
 
 const GreetingCard = ({ name }) => {
   const currentHour = new Date().getHours();

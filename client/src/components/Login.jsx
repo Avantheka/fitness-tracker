@@ -1,10 +1,10 @@
 import { useState } from "react";
 import './Auth.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from '../api/axios';
 
-import { auth, provider } from "../firebase"; // Import Firebase config
-import { signInWithPopup } from "firebase/auth"; // Import Google sign-in
+import { auth, provider } from "../firebase";
+import { signInWithPopup } from "firebase/auth";
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -12,9 +12,12 @@ function Login() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Basic validations
     if (!email || !password) {
       setError("Please fill in all fields");
       setSuccess("");
@@ -29,17 +32,18 @@ function Login() {
 
     try {
       const response = await axios.post("/login", { email, password });
-      console.log("Login success:", response.data);
 
+      // On success, save token & redirect
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("email", email);
+
       setSuccess("Login successful!");
       setError("");
-      setEmail("");
-      setPassword("");
 
+      // Redirect after short delay
       setTimeout(() => {
-        window.location.href = '/dashboard';
-      }, 1500);
+        navigate("/dashboard");
+      }, 1000);
 
     } catch (err) {
       console.error("Login failed:", err.response?.data || err.message);
@@ -54,16 +58,15 @@ function Login() {
       const user = result.user;
       const token = await user.getIdToken();
 
-      console.log("Google Sign-In successful:", user);
-
-
       localStorage.setItem("token", token);
+      localStorage.setItem("email", user.email);
+
       setSuccess("Google login successful!");
       setError("");
 
       setTimeout(() => {
-        window.location.href = '/dashboard';
-      }, 1500);
+        navigate("/dashboard");
+      }, 1000);
 
     } catch (err) {
       console.error("Google Sign-In Error:", err.message);

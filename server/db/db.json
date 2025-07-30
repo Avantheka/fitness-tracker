@@ -126,6 +126,26 @@
       "waist": "36"
     },
     {
+      "date": "2025-07-25",
+      "cardioType": "High Knees",
+      "cardioDuration": "15",
+      "cyclingDistance": "30",
+      "cyclingDuration": "45",
+      "waterIntake": "13",
+      "weight": "65",
+      "waist": "39"
+    },
+    {
+      "date": "2025-07-20",
+      "cardioType": "Burpees",
+      "cardioDuration": "25",
+      "cyclingDistance": "17",
+      "cyclingDuration": "50",
+      "waterIntake": "17",
+      "weight": "40",
+      "waist": "38"
+    },
+    {
       "date": "2025-07-28",
       "cardioType": "jogging",
       "cardioDuration": "20",
@@ -136,6 +156,7 @@
       "waist": "36"
     },
     {
+<<<<<<< HEAD
       "date": "2025-07-27",
       "cardioType": "jummp rope",
       "cardioDuration": "15",
@@ -144,6 +165,39 @@
       "waterIntake": "2 ",
       "weight": "50",
       "waist": "32"
+=======
+      "email": "test@example.com",
+      "date": "2025-07-27",
+      "cardioType": "Running",
+      "cardioDuration": "30",
+      "cyclingDistance": "5.2",
+      "cyclingDuration": "15",
+      "waterIntake": "3",
+      "weight": "60",
+      "waist": "30"
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-06-30",
+      "cardioType": "Running",
+      "cardioDuration": "12",
+      "cyclingDistance": "15",
+      "cyclingDuration": "20",
+      "waterIntake": "20",
+      "weight": "58",
+      "waist": "38"
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-29",
+      "cardioType": "Running",
+      "cardioDuration": "15",
+      "cyclingDistance": "12",
+      "cyclingDuration": "25",
+      "waterIntake": "13",
+      "weight": "",
+      "waist": ""
+>>>>>>> 2f45b385ff3a5ff4191b6c843f7726f7801f9ac3
     }
   ],
   "users": []
