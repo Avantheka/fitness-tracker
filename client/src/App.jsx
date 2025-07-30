@@ -4,6 +4,7 @@ import Register from "./components/Register";
 import Dashboard from "./pages/Dashboard"; 
 import Tracking from "./pages/Tracking";
 import Progress from "./pages/Progress";
+import PrivateRoute from "./components/PrivateRoute"; // ✅ Import PrivateRoute
 
 function App() {
   return (
@@ -12,9 +13,32 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/tracking" element={<Tracking />} />
-          <Route path="/progress" element={<Progress />} />
+          
+          {/* 🔒 Protected Routes */}
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/tracking"
+            element={
+              <PrivateRoute>
+                <Tracking />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/progress"
+            element={
+              <PrivateRoute>
+                <Progress />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </div>
     </Router>
