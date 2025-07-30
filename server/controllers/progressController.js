@@ -2,10 +2,11 @@ import db from "../db/db.js";
 
 export const getProgressSummary = async (req, res) => {
   try {
-    const { email, range, start, end } = req.query;
+    const { range, start, end } = req.query;
+    const email = req.user?.email; 
 
     if (!email) {
-      return res.status(400).json({ message: "Email is required." });
+      return res.status(401).json({ message: "Unauthorized. Email not found in token." });
     }
 
     await db.read();
@@ -41,13 +42,14 @@ export const getProgressSummary = async (req, res) => {
       filteredRecords = userRecords;
     }
 
-    // 🧮 Summarize Data
+    // Summarize Data
     let cardioTotal = 0;
     let cyclingTotal = 0;
     let waterTotal = 0;
     let waterCount = 0;
     let weightTrend = [];
     let waistTrend = [];
+    let dailyData = [];
 
     filteredRecords.forEach(entry => {
       if (entry.cardioDuration) {
@@ -70,14 +72,23 @@ export const getProgressSummary = async (req, res) => {
 
       if (entry.weight) weightTrend.push(entry.weight);
       if (entry.waist) waistTrend.push(entry.waist);
+
+      // For daily breakdown chart
+      dailyData.push({
+        date: entry.date,
+        cardio: parseInt(entry.cardioDuration) || 0,
+        cycling: parseFloat(entry.cyclingDistance) || 0,
+        water: parseFloat(entry.waterIntake) || 0,
+      });
     });
 
     const result = {
-      cardioTotal: `${cardioTotal} min`,
-      cyclingTotal: `${cyclingTotal} km`,
-      averageWater: waterCount ? `${(waterTotal / waterCount).toFixed(1)} L` : "0 L",
+      cardioTotal: cardioTotal,
+      cyclingTotal: cyclingTotal,
+      averageWater: waterCount ? (waterTotal / waterCount).toFixed(1) : 0,
       weightTrend,
-      waistTrend
+      waistTrend,
+      dailyData,
     };
 
     return res.json(result);
