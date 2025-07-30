@@ -18,45 +18,48 @@ const Progress = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const email = "test@example.com";
+  const email = localStorage.getItem("email"); 
 
   useEffect(() => {
-    if (!startDate || !endDate) return;
+  if (!startDate || !endDate) return;
 
-    setLoading(true);
+  setLoading(true);
 
-    const formattedStart = new Date(startDate).toISOString().slice(0, 10);
-    const formattedEnd = new Date(endDate).toISOString().slice(0, 10);
+  const formattedStart = new Date(startDate).toISOString().slice(0, 10);
+  const formattedEnd = new Date(endDate).toISOString().slice(0, 10);
 
-    axios
-      .get("/progress", {
-        params: {
-          email,
-          start: formattedStart,
-          end: formattedEnd,
-        },
-      })
-      .then((res) => {
-        const result = res.data;
+  axios
+    .get("/progress", {
+      params: {
+        start: formattedStart,
+        end: formattedEnd,
+      },
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+    .then((res) => {
+      const result = res.data;
 
-        const cardio = parseInt(result.cardioTotal) || 0;
-        const cycling = parseFloat(result.cyclingTotal) || 0;
-        const water = parseFloat(result.averageWater) || 0;
+      const cardio = parseInt(result.cardioTotal) || 0;
+      const cycling = parseFloat(result.cyclingTotal) || 0;
+      const water = parseFloat(result.averageWater) || 0;
 
-        const chartData = [
-          { name: "Cardio (min)", value: cardio },
-          { name: "Cycling (km)", value: cycling },
-          { name: "Water (L)", value: water },
-        ];
+      const chartData = [
+        { name: "Cardio (min)", value: cardio },
+        { name: "Cycling (km)", value: cycling },
+        { name: "Water (L)", value: water },
+      ];
 
-        setData(chartData);
-      })
-      .catch((err) => {
-        console.error("Progress fetch failed:", err);
-        setData([]);
-      })
-      .finally(() => setLoading(false));
-  }, [startDate, endDate]);
+      setData(chartData);
+    })
+    .catch((err) => {
+      console.error("Progress fetch failed:", err);
+      setData([]);
+    })
+    .finally(() => setLoading(false));
+}, [startDate, endDate]);
+
 
   return (
     <div className="page-container"> 

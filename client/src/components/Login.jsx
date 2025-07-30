@@ -33,14 +33,14 @@ function Login() {
     try {
       const response = await axios.post("/login", { email, password });
 
-      // On success, save token & redirect
+      // ✅ On success, store token & email
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("email", email);
 
       setSuccess("Login successful!");
       setError("");
 
-      // Redirect after short delay
+      // ✅ Redirect after short delay
       setTimeout(() => {
         navigate("/dashboard");
       }, 1000);
@@ -56,8 +56,10 @@ function Login() {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+
       const token = await user.getIdToken();
 
+      // ✅ Save Firebase token and email
       localStorage.setItem("token", token);
       localStorage.setItem("email", user.email);
 
