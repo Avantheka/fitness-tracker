@@ -248,6 +248,11 @@
       "name": "anu",
       "email": "anu@gmail.com",
       "password": "$2b$10$WMX1T5H4amwTDkbSvdWkAOpS784QJD6GXO.ea9j/NAPX7jCLCa63m"
+    },
+    {
+      "name": "Abi",
+      "email": "abi@gmail.com",
+      "password": "$2b$10$kh/ByoJCNjjKB.zLUG8BJuiNCe09.VySUh9WsBHDpszQVFC1QZu9y"
     }
   ]
 }
