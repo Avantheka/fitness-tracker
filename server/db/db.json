@@ -250,6 +250,19 @@
       "password": "$2b$10$WMX1T5H4amwTDkbSvdWkAOpS784QJD6GXO.ea9j/NAPX7jCLCa63m"
     },
     {
+      "name": "Nila",
+      "email": "Nila@gmail.com",
+      "password": "$2b$10$aXqYFiB8Fls5pqR4NSKlHOJ8hY82dxeU1Z7FK/a2PNYleTd9/bWQ."
+    },
+    {
+      "name": "Sai",
+      "email": "sai@gmail.com",
+      "password": "$2b$10$ZpL0n1gg.U.iDdgNxgsWMe7ug1J71CtcJlUP.o35.uPRf/FeVqOCq"
+    },
+    {
+      "name": "shiva",
+      "email": "shiva@gmail.com",
+      "password": "$2b$10$E2MqyzreygKUs8OyO33KpOJaVOqJ5VSE6pIXn7Jto9WKEKsXjHRRq"
       "name": "Abi",
       "email": "abi@gmail.com",
       "password": "$2b$10$kh/ByoJCNjjKB.zLUG8BJuiNCe09.VySUh9WsBHDpszQVFC1QZu9y"
