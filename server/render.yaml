@@ -3,8 +3,16 @@ services:
     name: fitnesstracker-backend
     env: node
     buildCommand: npm install
-    startCommand: npm run dev 
+    startCommand: npm start
     rootDir: server
     envVars:
       - key: JWT_SECRET
         value: mysecretkey123
+      - key: NODE_ENV
+        value: production
+ 
+  - type: static
+    name: fitnesstracker-frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    rootDir: client
