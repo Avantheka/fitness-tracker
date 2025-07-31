@@ -329,6 +329,28 @@
       "waterIntake": "1.5",
       "weight": "45",
       "waist": "31"
+    },
+    {
+      "email": "vijay@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "walking",
+      "cardioDuration": "45",
+      "cyclingDistance": "5",
+      "cyclingDuration": "20",
+      "waterIntake": "3",
+      "weight": "38",
+      "waist": "30"
+    },
+    {
+      "email": "Nila@gmail.com",
+      "date": "2025-07-30",
+      "cardioType": "jummp rope",
+      "cardioDuration": "15",
+      "cyclingDistance": "5",
+      "cyclingDuration": "25",
+      "waterIntake": "3",
+      "weight": "40",
+      "waist": "35"
     }
   ],
   "users": [
@@ -366,6 +388,11 @@
       "name": "kushi",
       "email": "kushi@gmail.com",
       "password": "$2b$10$O2ULp6qzEWKOA4c5RidX1OBCiMYZ2/aDZOpYoMqieXkcn4JPbErcK"
+    },
+    {
+      "name": "Vijay",
+      "email": "vijay@gmail.com",
+      "password": "$2b$10$lPK4Tz7cmqZrQv.d3yOn.uk8m2HpAxwD9lQUnyOIrxo0gJS4hmJ6K"
     }
   ]
 }
