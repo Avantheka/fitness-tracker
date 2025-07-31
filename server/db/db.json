@@ -406,6 +406,39 @@
       "waterIntake": "5",
       "weight": "65",
       "waist": "35"
+    },
+    {
+      "email": "Nila@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "jummp rope",
+      "cardioDuration": "15",
+      "cyclingDistance": "5",
+      "cyclingDuration": "25",
+      "waterIntake": "3",
+      "weight": "40",
+      "waist": "35"
+    },
+    {
+      "email": "Nila@gmail.com",
+      "date": "2025-07-28",
+      "cardioType": "jummp rope",
+      "cardioDuration": "15",
+      "cyclingDistance": "5",
+      "cyclingDuration": "25",
+      "waterIntake": "3",
+      "weight": "40",
+      "waist": "35"
+    },
+    {
+      "email": "ravi@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "jummp rope",
+      "cardioDuration": "15",
+      "cyclingDistance": "5",
+      "cyclingDuration": "25",
+      "waterIntake": "3",
+      "weight": "40",
+      "waist": "35"
     }
   ],
   "users": [
@@ -463,6 +496,11 @@
       "name": "geetha",
       "email": "geetha@gmail.com",
       "password": "$2b$10$WBKn55lXL9SPbey.4LS0eOzWhT9LwpQUqNcstOGD9rRGoUszALFm6"
+    },
+    {
+      "name": "Ravi",
+      "email": "ravi@gmail.com",
+      "password": "$2b$10$47t1qsRWFtz8EMeQ6YZ7eu3jfvO9kKjeEdY2sU7T.RXMG/Qo/bvQ6"
     }
   ]
 }
