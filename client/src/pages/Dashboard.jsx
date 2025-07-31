@@ -56,11 +56,35 @@ const Dashboard = () => {
       <div className="dashboard-content">
         <GreetingCard name={data?.name || "User"} />
 
+        {data?.tracking?.date && (
+          <p style={{ textAlign: "center", marginTop: "0.5rem", fontStyle: "italic" }}>
+            Last Tracked: {data.tracking.date}
+          </p>
+        )}
+
         <div className="dashboard-grid">
-          <GoalCard label="Water Intake (L)" goal={data?.goals?.water || "-"} />
-          <GoalCard label="Calories Burned" goal={data?.goals?.calories || "-"} />
-          <GoalCard label="Steps Taken" goal={data?.goals?.steps?.toLocaleString() || "-"} />
-          <GoalCard label="Workout Time (min)" goal={data?.goals?.workout || "-"} />
+          <GoalCard
+            label="Water Intake"
+            goal={data?.tracking?.waterIntake ? `${data.tracking.waterIntake} L` : "-"}
+          />
+
+          <GoalCard
+            label="Cardio"
+            goal={
+              data?.tracking?.cardioDuration
+                ? `${data.tracking.cardioType || "Cardio"} – ${data.tracking.cardioDuration} min`
+                : "-"
+            }
+          />
+
+          <GoalCard
+            label="Cycling"
+            goal={
+              data?.tracking?.cyclingDistance && data?.tracking?.cyclingDuration
+                ? `${data.tracking.cyclingDistance} km – ${data.tracking.cyclingDuration} min`
+                : "-"
+            }
+          />
         </div>
 
         <div className="dashboard-extras">
