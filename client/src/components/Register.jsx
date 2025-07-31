@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // ✅ added useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../api/axios";
 
 function Register() {
@@ -11,23 +11,33 @@ function Register() {
   const [success, setSuccess] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const navigate = useNavigate(); // ✅ to redirect after success
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
 
+    // Check for empty fields
     if (!name || !email || !password || !confirmPassword) {
       setError("Please fill in all fields");
       return;
     }
 
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    // Passwords match
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
 
+    // Password length check
     if (password.length < 6) {
       setError("Password must be at least 6 characters long");
       return;
@@ -48,11 +58,9 @@ function Register() {
       setPassword("");
       setConfirmPassword("");
 
-      
       setTimeout(() => {
-        navigate("/"); // or navigate("/login")
+        navigate("/");
       }, 2000);
-
     } catch (err) {
       console.error("Register failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Registration failed");

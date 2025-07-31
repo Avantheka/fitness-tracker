@@ -18,11 +18,9 @@ const Tracking = () => {
   const [date, setDate] = useState(() =>
     new Date().toISOString().split("T")[0]
   );
-
   const [lastSubmittedDate, setLastSubmittedDate] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
   const navigate = useNavigate();
 
   if (!localStorage.getItem("token")) {
@@ -30,9 +28,10 @@ const Tracking = () => {
   }
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value.trimStart(),
     }));
   };
 
@@ -54,20 +53,25 @@ const Tracking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.cardioDuration || !formData.waterIntake) {
-      setError("Cardio Duration and Water Intake are required");
+    const { cardioDuration, waterIntake } = formData;
+
+    if (!cardioDuration || !waterIntake) {
+      setError("Cardio Duration and Water Intake are required.");
       setSuccess("");
       return;
     }
 
-    if (isNaN(formData.cardioDuration) || isNaN(formData.waterIntake)) {
-      setError("Please enter valid numbers for duration and water intake");
+    if (isNaN(cardioDuration) || isNaN(waterIntake)) {
+      setError("Please enter valid numbers for duration and water intake.");
       setSuccess("");
       return;
     }
 
     const formattedDate = new Date(date).toISOString().slice(0, 10);
-    const dataToSubmit = { ...formData, date: formattedDate };
+    const dataToSubmit = {
+      ...formData,
+      date: formattedDate,
+    };
 
     try {
       const response = await axios.post("/track", dataToSubmit, {
@@ -82,11 +86,11 @@ const Tracking = () => {
         setLastSubmittedDate(formattedDate);
         handleClear();
       } else {
-        setError("Unexpected response from server");
+        setError("Unexpected response from server.");
         setSuccess("");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong");
+      setError(err.response?.data?.message || "Something went wrong.");
       setSuccess("");
     }
   };
@@ -183,7 +187,6 @@ const Tracking = () => {
             </p>
           )}
 
-    
           <div style={{ marginTop: "30px", textAlign: "center" }}>
             <button className="logout-btn" onClick={() => navigate("/dashboard")}>
               Back to Dashboard
