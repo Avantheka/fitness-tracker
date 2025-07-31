@@ -362,6 +362,17 @@
       "waterIntake": "4",
       "weight": "35",
       "waist": "20"
+    },
+    {
+      "email": "geetha@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "Running",
+      "cardioDuration": "12",
+      "cyclingDistance": "12",
+      "cyclingDuration": "15",
+      "waterIntake": "5",
+      "weight": "65",
+      "waist": "35"
     }
   ],
   "users": [
