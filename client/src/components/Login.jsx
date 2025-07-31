@@ -1,24 +1,131 @@
 import { useState } from "react";
-import'./Auth.css';
+import './Auth.css';
+import { Link, useNavigate } from "react-router-dom";
+import axios from '../api/axios';
+
+import { auth, provider } from "../firebase";
+import { signInWithPopup } from "firebase/auth";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login:", email, password);
+
+    // Basic validations
+    if (!email || !password) {
+      setError("Please fill in all fields");
+      setSuccess("");
+      return;
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address");
+      setSuccess("");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      setSuccess("");
+      return;
+    }
+
+    try {
+      const response = await axios.post("/login", { email, password });
+
+      // Store token, name and email from server response
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("name", response.data.name);     // Store name
+      localStorage.setItem("email", response.data.email);   // Store email
+
+      setSuccess("Login successful!");
+      setError("");
+
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+
+    } catch (err) {
+      console.error("Login failed:", err.response?.data || err.message);
+      setError(err.response?.data?.message || "Login failed");
+      setSuccess("");
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      const token = await user.getIdToken();
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("email", user.email);
+      localStorage.setItem("name", user.displayName); // ✅ Use displayName from Firebase
+
+      setSuccess("Google login successful!");
+      setError("");
+
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+
+    } catch (err) {
+      console.error("Google Sign-In Error:", err.message);
+      setError("Google Sign-In failed");
+      setSuccess("");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
-      <br />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
-      <br />
-      <button type="submit">Login</button>
-    </form>
+    <div className="page-container">
+      <div className="info-section">
+        <h1>Fitness Tracker</h1>
+        <p>
+          Our fitness tracking app helps you set goals, monitor progress, and stay motivated.
+          Achieve a healthier lifestyle with personalized insights, easy tracking, and real-time progress updates.
+        </p>
+      </div>
+
+      <div className="auth-form-container">
+        <h2>Login</h2>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+          />
+
+          {error && <p className="error-message">{error}</p>}
+          {success && <p className="success-message">{success}</p>}
+
+          <button type="submit">Login</button>
+        </form>
+
+        <button onClick={handleGoogleSignIn} className="google-signin-btn">
+          Sign in with Google
+        </button>
+
+        <p>Don't have an account? <Link to="/register">Register here</Link></p>
+      </div>
+    </div>
   );
 }
 
