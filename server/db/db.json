@@ -329,6 +329,39 @@
       "waterIntake": "1.5",
       "weight": "45",
       "waist": "31"
+    },
+    {
+      "email": "geetha@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "jogging",
+      "cardioDuration": "12",
+      "cyclingDistance": "15",
+      "cyclingDuration": "10",
+      "waterIntake": "5",
+      "weight": "45",
+      "waist": "32"
+    },
+    {
+      "email": "geetha@gmail.com",
+      "date": "2025-07-30",
+      "cardioType": "running",
+      "cardioDuration": "15",
+      "cyclingDistance": "20",
+      "cyclingDuration": "13",
+      "waterIntake": "6",
+      "weight": "40",
+      "waist": "35"
+    },
+    {
+      "email": "geetha@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "Running",
+      "cardioDuration": "15",
+      "cyclingDistance": "10",
+      "cyclingDuration": "30",
+      "waterIntake": "4",
+      "weight": "35",
+      "waist": "20"
     }
   ],
   "users": [
@@ -366,6 +399,16 @@
       "name": "kushi",
       "email": "kushi@gmail.com",
       "password": "$2b$10$O2ULp6qzEWKOA4c5RidX1OBCiMYZ2/aDZOpYoMqieXkcn4JPbErcK"
+    },
+    {
+      "name": "sheela",
+      "email": "sheela@gmail.com",
+      "password": "$2b$10$SuS8tslsq4tejz06qYMhK.uyggcTDxQRGRL3IzMswKGgb/dAOhvMS"
+    },
+    {
+      "name": "geetha",
+      "email": "geetha@gmail.com",
+      "password": "$2b$10$WBKn55lXL9SPbey.4LS0eOzWhT9LwpQUqNcstOGD9rRGoUszALFm6"
     }
   ]
 }
