@@ -35,15 +35,224 @@
     },
     {
       "id": 1753439492162,
-      "date": "2025-07-25T10:31:32.162Z",
+      "email": "test@example.com",
+      "date": "2025-07-28",
+      "cardioType": "Running",
+      "cardioDuration": 15,
+      "cyclingDistance": 3,
+      "cyclingDuration": 30,
+      "waterIntake": 2,
+      "weight": 55,
+      "waist": 38
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "Running",
+      "cardioDuration": "32",
+      "cyclingDistance": "12 km",
+      "cyclingDuration": "30",
+      "waterIntake": "12",
+      "weight": "45",
+      "waist": "38 cm"
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "Running",
+      "cardioDuration": "30",
+      "cyclingDistance": "5 km",
+      "cyclingDuration": "30 minutes",
+      "waterIntake": "12",
+      "weight": "50",
+      "waist": "37 cm"
+    },
+    {
+      "date": "2025-07-28",
       "cardioType": "running",
       "cardioDuration": "15",
-      "cyclingDistance": "3 km",
-      "cyclingDuration": "30 minutes",
-      "waterIntake": "2",
-      "weight": "55kg",
-      "waist": "38cm"
+      "cyclingDistance": "35",
+      "cyclingDuration": "60",
+      "waterIntake": "15",
+      "weight": "50",
+      "waist": "37"
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "walking",
+      "cardioDuration": "30",
+      "cyclingDistance": "30",
+      "cyclingDuration": "25",
+      "waterIntake": "12",
+      "weight": "60",
+      "waist": "40"
+    },
+    {
+      "date": "2025-07-01",
+      "cardioType": "walking",
+      "cardioDuration": "30",
+      "cyclingDistance": "30",
+      "cyclingDuration": "30",
+      "waterIntake": "15",
+      "weight": "55",
+      "waist": "37"
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "Jogging",
+      "cardioDuration": "40",
+      "cyclingDistance": "10",
+      "cyclingDuration": "12",
+      "waterIntake": "10",
+      "weight": "55",
+      "waist": "35"
+    },
+    {
+      "date": "2025-07-02",
+      "cardioType": "Jump Rope",
+      "cardioDuration": "30",
+      "cyclingDistance": "15",
+      "cyclingDuration": "30",
+      "waterIntake": "15",
+      "weight": "52",
+      "waist": "38"
+    },
+    {
+      "date": "2025-07-26",
+      "cardioType": "jogging",
+      "cardioDuration": "20",
+      "cyclingDistance": "5",
+      "cyclingDuration": "45",
+      "waterIntake": "1",
+      "weight": "58",
+      "waist": "36"
+    },
+    {
+      "date": "2025-07-25",
+      "cardioType": "High Knees",
+      "cardioDuration": "15",
+      "cyclingDistance": "30",
+      "cyclingDuration": "45",
+      "waterIntake": "13",
+      "weight": "65",
+      "waist": "39"
+    },
+    {
+      "date": "2025-07-20",
+      "cardioType": "Burpees",
+      "cardioDuration": "25",
+      "cyclingDistance": "17",
+      "cyclingDuration": "50",
+      "waterIntake": "17",
+      "weight": "40",
+      "waist": "38"
+    },
+    {
+      "date": "2025-07-28",
+      "cardioType": "jogging",
+      "cardioDuration": "20",
+      "cyclingDistance": "5",
+      "cyclingDuration": "45",
+      "waterIntake": "1",
+      "weight": "58",
+      "waist": "36"
+    },
+    {
+      "date": "2025-07-27",
+      "cardioType": "jummp rope",
+      "cardioDuration": "15",
+      "cyclingDistance": "2",
+      "cyclingDuration": "10",
+      "waterIntake": "2 ",
+      "weight": "50",
+      "waist": "32"
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-27",
+      "cardioType": "Running",
+      "cardioDuration": "30",
+      "cyclingDistance": "5.2",
+      "cyclingDuration": "15",
+      "waterIntake": "3",
+      "weight": "60",
+      "waist": "30"
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-06-30",
+      "cardioType": "Running",
+      "cardioDuration": "12",
+      "cyclingDistance": "15",
+      "cyclingDuration": "20",
+      "waterIntake": "20",
+      "weight": "58",
+      "waist": "38"
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-29",
+      "cardioType": "Running",
+      "cardioDuration": "15",
+      "cyclingDistance": "12",
+      "cyclingDuration": "25",
+      "waterIntake": "13",
+      "weight": "",
+      "waist": ""
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-30",
+      "cardioType": "walking",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "test@example.com",
+      "date": "2025-07-30",
+      "cardioType": "walking",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "anu@gmail.com",
+      "date": "2025-07-30",
+      "cardioType": "walking",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "anu@gmail.com",
+      "date": "2025-07-30",
+      "cardioType": "running",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "name": "anu",
+      "email": "anu@gmail.com",
+      "password": "$2b$10$WMX1T5H4amwTDkbSvdWkAOpS784QJD6GXO.ea9j/NAPX7jCLCa63m"
+    },
+    {
+      "name": "Abi",
+      "email": "abi@gmail.com",
+      "password": "$2b$10$kh/ByoJCNjjKB.zLUG8BJuiNCe09.VySUh9WsBHDpszQVFC1QZu9y"
+    }
+  ]
 }

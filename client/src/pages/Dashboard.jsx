@@ -52,15 +52,15 @@ const Dashboard = () => {
   return (
     <div className="dashboard-wrapper">
       <Header />
+
       <div className="dashboard-content">
         <GreetingCard name={data?.name || "User"} />
 
         <div className="dashboard-grid">
-          <GoalCard label="Water Intake (L)" goal={data?.goals?.water || "-"} bgColor="#e7f0fd" />
-          <GoalCard label="Calories Burned" goal={data?.goals?.calories || "-"} bgColor="#e6f7f1" />
-          <GoalCard label="Steps Taken" goal={data?.goals?.steps?.toLocaleString() || "-"} bgColor="#fff4d9" />
-          <GoalCard label="Workout Time (min)" goal={data?.goals?.workout || "-"} bgColor="#f4e1ff" />
-
+          <GoalCard label="Water Intake (L)" goal={data?.goals?.water || "-"} />
+          <GoalCard label="Calories Burned" goal={data?.goals?.calories || "-"} />
+          <GoalCard label="Steps Taken" goal={data?.goals?.steps?.toLocaleString() || "-"} />
+          <GoalCard label="Workout Time (min)" goal={data?.goals?.workout || "-"} />
         </div>
 
         <div className="dashboard-extras">

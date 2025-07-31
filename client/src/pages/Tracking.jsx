@@ -11,13 +11,18 @@ const Tracking = () => {
     cyclingDuration: "",
     waterIntake: "",
     weight: "",
-    waist: ""
+    waist: "",
   });
 
+  const [date, setDate] = useState(() =>
+    new Date().toISOString().split("T")[0]
+  );
+
+  const [lastSubmittedDate, setLastSubmittedDate] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // Protect route: if no token, redirect to login
+  // Redirect to login if no token
   if (!localStorage.getItem("token")) {
     return <Navigate to="/" replace />;
   }
@@ -25,7 +30,7 @@ const Tracking = () => {
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -37,10 +42,10 @@ const Tracking = () => {
       cyclingDuration: "",
       waterIntake: "",
       weight: "",
-      waist: ""
+      waist: "",
     });
+    setDate(new Date().toISOString().split("T")[0]);
     setError("");
-    setSuccess("");
   };
 
   const handleSubmit = async (e) => {
@@ -58,18 +63,26 @@ const Tracking = () => {
       return;
     }
 
+    const formattedDate = new Date(date).toISOString().slice(0, 10);
+    const dataToSubmit = { ...formData, date: formattedDate, email: "test@example.com" };
+
     try {
-      const response = await axios.post("/track", formData, {
+      const response = await axios.post("/track", dataToSubmit, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      console.log("Tracking saved:", response.data);
-      setSuccess("Tracking data saved successfully!");
-      setError("");
-      handleClear();
+
+      if (response.status === 201) {
+        setSuccess(" Tracking data saved!");
+        setError("");
+        setLastSubmittedDate(formattedDate);
+        handleClear();
+      } else {
+        setError("Unexpected response from server");
+        setSuccess("");
+      }
     } catch (err) {
-      console.error("Tracking failed:", err.response?.data || err.message);
       setError(err.response?.data?.message || "Something went wrong");
       setSuccess("");
     }
@@ -84,6 +97,15 @@ const Tracking = () => {
         {success && <p className="success-message">{success}</p>}
 
         <form onSubmit={handleSubmit}>
+          <label htmlFor="date">Date:</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+
           <h3>🏃 Cardio</h3>
           <input
             type="text"
@@ -141,6 +163,7 @@ const Tracking = () => {
             onChange={handleChange}
           />
 
+          <hr style={{ margin: "20px 0" }} />
           <div className="button-group">
             <button type="submit">Submit</button>
             <button type="button" onClick={handleClear}>
@@ -148,6 +171,12 @@ const Tracking = () => {
             </button>
           </div>
         </form>
+
+        {lastSubmittedDate && (
+          <p>
+            <strong>Last Submitted:</strong> {lastSubmittedDate}
+          </p>
+        )}
       </div>
     </div>
   );
