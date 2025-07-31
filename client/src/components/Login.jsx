@@ -17,34 +17,29 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validations
+    // Basic validation
     if (!email || !password) {
       setError("Please fill in all fields");
-      setSuccess("");
       return;
     }
 
-    // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setError("Please enter a valid email address");
-      setSuccess("");
+      setError("Enter a valid email");
       return;
     }
 
     if (password.length < 6) {
       setError("Password must be at least 6 characters");
-      setSuccess("");
       return;
     }
 
     try {
       const response = await axios.post("/login", { email, password });
 
-      // Store token, name and email from server response
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("name", response.data.name);     // Store name
-      localStorage.setItem("email", response.data.email);   // Store email
+      localStorage.setItem("name", response.data.name);
+      localStorage.setItem("email", response.data.email);
 
       setSuccess("Login successful!");
       setError("");
@@ -68,7 +63,7 @@ function Login() {
 
       localStorage.setItem("token", token);
       localStorage.setItem("email", user.email);
-      localStorage.setItem("name", user.displayName); // ✅ Use displayName from Firebase
+      localStorage.setItem("name", user.displayName);
 
       setSuccess("Google login successful!");
       setError("");
@@ -89,8 +84,7 @@ function Login() {
       <div className="info-section">
         <h1>Fitness Tracker</h1>
         <p>
-          Our fitness tracking app helps you set goals, monitor progress, and stay motivated.
-          Achieve a healthier lifestyle with personalized insights, easy tracking, and real-time progress updates.
+          Track your workouts, monitor progress, and stay motivated with real-time updates.
         </p>
       </div>
 
