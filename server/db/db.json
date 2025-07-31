@@ -241,6 +241,28 @@
       "waterIntake": "2.5",
       "weight": "45",
       "waist": "31"
+    },
+    {
+      "email": "keerthi@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "running",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "keerthi@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "jogging",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
     }
   ],
   "users": [
@@ -248,6 +270,11 @@
       "name": "anu",
       "email": "anu@gmail.com",
       "password": "$2b$10$WMX1T5H4amwTDkbSvdWkAOpS784QJD6GXO.ea9j/NAPX7jCLCa63m"
+    },
+    {
+      "name": "keerthi",
+      "email": "keerthi@gmail.com",
+      "password": "$2b$10$fqQogZqOAu4JmEHQUzTjhuAU.NXhIC0Yh1jOC0UB9LWP87IAsmeyu"
     }
   ]
 }
