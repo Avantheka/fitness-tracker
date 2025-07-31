@@ -25,6 +25,7 @@ export const registerUser = async (req, res) => {
 };
 
 // Login existing user
+// Login existing user
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -47,5 +48,7 @@ export const loginUser = async (req, res) => {
     expiresIn: "1h",
   });
 
-  return res.status(200).json({ message: "Login successful", token });
+  // 👇 Include the name in response
+  return res.status(200).json({ message: "Login successful", token, name: user.name });
 };
+

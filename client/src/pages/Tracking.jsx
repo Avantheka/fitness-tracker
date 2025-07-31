@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../components/Auth.css";
 import axios from "../api/axios";
-import { Navigate } from "react-router-dom";
+import Header from "../components/Header";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Tracking = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,8 @@ const Tracking = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // Redirect to login if no token
+  const navigate = useNavigate();
+
   if (!localStorage.getItem("token")) {
     return <Navigate to="/" replace />;
   }
@@ -46,6 +48,7 @@ const Tracking = () => {
     });
     setDate(new Date().toISOString().split("T")[0]);
     setError("");
+    setSuccess("");
   };
 
   const handleSubmit = async (e) => {
@@ -64,7 +67,7 @@ const Tracking = () => {
     }
 
     const formattedDate = new Date(date).toISOString().slice(0, 10);
-    const dataToSubmit = { ...formData, date: formattedDate, email: "test@example.com" };
+    const dataToSubmit = { ...formData, date: formattedDate };
 
     try {
       const response = await axios.post("/track", dataToSubmit, {
@@ -74,7 +77,7 @@ const Tracking = () => {
       });
 
       if (response.status === 201) {
-        setSuccess(" Tracking data saved!");
+        setSuccess("✅ Tracking data saved!");
         setError("");
         setLastSubmittedDate(formattedDate);
         handleClear();
@@ -89,94 +92,104 @@ const Tracking = () => {
   };
 
   return (
-    <div className="tracking-page">
-      <div className="tracking-form-container">
-        <h2>Track Your Workout</h2>
+    <div>
+      <Header />
+      <div className="tracking-page">
+        <div className="tracking-form-container">
+          <h2>Track Your Workout</h2>
 
-        {error && <p className="error-message">{error}</p>}
-        {success && <p className="success-message">{success}</p>}
+          {error && <p className="error-message">{error}</p>}
+          {success && <p className="success-message">{success}</p>}
 
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="date">Date:</label>
-          <input
-            type="date"
-            id="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="date">Date:</label>
+            <input
+              type="date"
+              id="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+            />
 
-          <h3>🏃 Cardio</h3>
-          <input
-            type="text"
-            name="cardioType"
-            placeholder="Type (e.g., Running)"
-            value={formData.cardioType}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="cardioDuration"
-            placeholder="Duration (minutes)"
-            value={formData.cardioDuration}
-            onChange={handleChange}
-          />
+            <h3>🏃 Cardio</h3>
+            <input
+              type="text"
+              name="cardioType"
+              placeholder="Type (e.g., Running)"
+              value={formData.cardioType}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="cardioDuration"
+              placeholder="Duration (minutes)"
+              value={formData.cardioDuration}
+              onChange={handleChange}
+            />
 
-          <h3>🚴 Cycling</h3>
-          <input
-            type="text"
-            name="cyclingDistance"
-            placeholder="Distance (km)"
-            value={formData.cyclingDistance}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="cyclingDuration"
-            placeholder="Duration (minutes)"
-            value={formData.cyclingDuration}
-            onChange={handleChange}
-          />
+            <h3>🚴 Cycling</h3>
+            <input
+              type="text"
+              name="cyclingDistance"
+              placeholder="Distance (km)"
+              value={formData.cyclingDistance}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="cyclingDuration"
+              placeholder="Duration (minutes)"
+              value={formData.cyclingDuration}
+              onChange={handleChange}
+            />
 
-          <h3>💧 Water Intake</h3>
-          <input
-            type="text"
-            name="waterIntake"
-            placeholder="Water Intake (litres)"
-            value={formData.waterIntake}
-            onChange={handleChange}
-          />
+            <h3>💧 Water Intake</h3>
+            <input
+              type="text"
+              name="waterIntake"
+              placeholder="Water Intake (litres)"
+              value={formData.waterIntake}
+              onChange={handleChange}
+            />
 
-          <h3>📏 Body Measurements</h3>
-          <input
-            type="text"
-            name="weight"
-            placeholder="Weight (kg)"
-            value={formData.weight}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="waist"
-            placeholder="Waist (cm)"
-            value={formData.waist}
-            onChange={handleChange}
-          />
+            <h3>📏 Body Measurements</h3>
+            <input
+              type="text"
+              name="weight"
+              placeholder="Weight (kg)"
+              value={formData.weight}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="waist"
+              placeholder="Waist (cm)"
+              value={formData.waist}
+              onChange={handleChange}
+            />
 
-          <hr style={{ margin: "20px 0" }} />
-          <div className="button-group">
-            <button type="submit">Submit</button>
-            <button type="button" onClick={handleClear}>
-              Clear
+            <hr style={{ margin: "20px 0" }} />
+            <div className="button-group">
+              <button type="submit">Submit</button>
+              <button type="button" onClick={handleClear}>
+                Clear
+              </button>
+            </div>
+          </form>
+
+          {lastSubmittedDate && (
+            <p>
+              <strong>Last Submitted:</strong> {lastSubmittedDate}
+            </p>
+          )}
+
+    
+          <div style={{ marginTop: "30px", textAlign: "center" }}>
+            <button className="logout-btn" onClick={() => navigate("/dashboard")}>
+              Back to Dashboard
             </button>
           </div>
-        </form>
-
-        {lastSubmittedDate && (
-          <p>
-            <strong>Last Submitted:</strong> {lastSubmittedDate}
-          </p>
-        )}
+        </div>
       </div>
     </div>
   );

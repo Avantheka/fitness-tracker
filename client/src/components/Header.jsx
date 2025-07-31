@@ -8,16 +8,17 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("email");
-    navigate("/"); 
+    localStorage.removeItem("name");  
+    navigate("/");
   };
 
-  const userEmail = localStorage.getItem("email");
+  const userName = localStorage.getItem("name");
 
   return (
     <header className="app-header">
       <h1 className="app-title">🏋️‍♂️ FitTrack</h1>
       <div className="user-section">
-        <span className="user-name">Hello, {userEmail || "User"}</span>
+        <span className="user-name">Hello, {userName || "User"}</span>
         <button className="logout-btn" onClick={handleLogout}>
           Logout
         </button>

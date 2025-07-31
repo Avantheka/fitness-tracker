@@ -263,6 +263,72 @@
       "waterIntake": "2.5",
       "weight": "45",
       "waist": "31"
+    },
+    {
+      "email": "Nila@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "walking",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "kushi@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "Running",
+      "cardioDuration": "15",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "2.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "kushi@gmail.com",
+      "date": "2025-07-30",
+      "cardioType": "Running",
+      "cardioDuration": "20",
+      "cyclingDistance": "4",
+      "cyclingDuration": "10",
+      "waterIntake": "2",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "kushi@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "Running",
+      "cardioDuration": "20",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "1.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "kushi@gmail.com",
+      "date": "2025-07-31",
+      "cardioType": "Running",
+      "cardioDuration": "20",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "1.5",
+      "weight": "45",
+      "waist": "31"
+    },
+    {
+      "email": "kushi@gmail.com",
+      "date": "2025-07-28",
+      "cardioType": "walking",
+      "cardioDuration": "20",
+      "cyclingDistance": "3",
+      "cyclingDuration": "10",
+      "waterIntake": "1.5",
+      "weight": "45",
+      "waist": "31"
     }
   ],
   "users": [
@@ -275,6 +341,7 @@
       "name": "keerthi",
       "email": "keerthi@gmail.com",
       "password": "$2b$10$fqQogZqOAu4JmEHQUzTjhuAU.NXhIC0Yh1jOC0UB9LWP87IAsmeyu"
+    },
     {
       "name": "Nila",
       "email": "Nila@gmail.com",
@@ -289,10 +356,16 @@
       "name": "shiva",
       "email": "shiva@gmail.com",
       "password": "$2b$10$E2MqyzreygKUs8OyO33KpOJaVOqJ5VSE6pIXn7Jto9WKEKsXjHRRq"
-    }
+    },
+    {
       "name": "Abi",
       "email": "abi@gmail.com",
       "password": "$2b$10$kh/ByoJCNjjKB.zLUG8BJuiNCe09.VySUh9WsBHDpszQVFC1QZu9y"
+    },
+    {
+      "name": "kushi",
+      "email": "kushi@gmail.com",
+      "password": "$2b$10$O2ULp6qzEWKOA4c5RidX1OBCiMYZ2/aDZOpYoMqieXkcn4JPbErcK"
     }
   ]
 }

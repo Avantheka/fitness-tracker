@@ -4,7 +4,7 @@ import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/progress", getProgressSummary);
 router.get("/progress", authMiddleware, getProgressSummary);
 
 export default router;
+

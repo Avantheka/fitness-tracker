@@ -33,14 +33,14 @@ function Login() {
     try {
       const response = await axios.post("/login", { email, password });
 
-      // ✅ On success, store token & email
+      // Store token, name and email from server response
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("email", email);
+      localStorage.setItem("name", response.data.name);     // Store name
+      localStorage.setItem("email", response.data.email);   // Store email
 
       setSuccess("Login successful!");
       setError("");
 
-      // ✅ Redirect after short delay
       setTimeout(() => {
         navigate("/dashboard");
       }, 1000);
@@ -56,12 +56,12 @@ function Login() {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-
       const token = await user.getIdToken();
 
-      // ✅ Save Firebase token and email
+      // You can optionally send token to backend for verification or save locally
       localStorage.setItem("token", token);
       localStorage.setItem("email", user.email);
+      localStorage.setItem("name", user.displayName); // ✅ Use displayName from Firebase
 
       setSuccess("Google login successful!");
       setError("");
