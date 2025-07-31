@@ -1,5 +1,9 @@
+// axios.js
 import axios from "axios";
 
-export default axios.create({
-  baseURL: "https://fitness-tracker-71oa.onrender.com",
+const instance = axios.create({
+  baseURL: "https://fitnesstracker-backend.onrender.com", 
+  withCredentials: true,
 });
+
+export default instance;
