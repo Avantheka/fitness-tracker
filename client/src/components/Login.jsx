@@ -24,6 +24,14 @@ function Login() {
       return;
     }
 
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address");
+      setSuccess("");
+      return;
+    }
+
     if (password.length < 6) {
       setError("Password must be at least 6 characters");
       setSuccess("");
@@ -58,7 +66,6 @@ function Login() {
       const user = result.user;
       const token = await user.getIdToken();
 
-      // You can optionally send token to backend for verification or save locally
       localStorage.setItem("token", token);
       localStorage.setItem("email", user.email);
       localStorage.setItem("name", user.displayName); // ✅ Use displayName from Firebase
