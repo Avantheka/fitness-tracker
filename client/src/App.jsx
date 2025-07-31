@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Tracking from "./pages/Tracking";
 import Progress from "./pages/Progress";
 import PrivateRoute from "./components/PrivateRoute"; 
+import './Auth.css';
 
 function App() {
   return (
