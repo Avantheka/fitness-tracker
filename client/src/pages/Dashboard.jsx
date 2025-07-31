@@ -20,6 +20,7 @@ const Dashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -37,6 +38,15 @@ const Dashboard = () => {
       })
       .catch((err) => {
         console.error("Failed to load dashboard:", err);
+        if (err.response?.status === 401) {
+          // Token expired or invalid
+          localStorage.removeItem("token");
+          setShouldRedirect(true);
+        } else {
+          setError(
+            err.response?.data?.message || "Could not load dashboard data."
+          );
+        }
       })
       .finally(() => {
         setLoading(false);
@@ -47,7 +57,13 @@ const Dashboard = () => {
     return <Navigate to="/" replace />;
   }
 
-  if (loading) return <p style={{ textAlign: "center" }}>Loading...</p>;
+  if (loading) {
+    return <p style={{ textAlign: "center" }}>Loading...</p>;
+  }
+
+  if (error) {
+    return <p style={{ color: "red", textAlign: "center" }}>{error}</p>;
+  }
 
   return (
     <div className="dashboard-wrapper">
@@ -57,7 +73,13 @@ const Dashboard = () => {
         <GreetingCard name={data?.name || "User"} />
 
         {data?.tracking?.date && (
-          <p style={{ textAlign: "center", marginTop: "0.5rem", fontStyle: "italic" }}>
+          <p
+            style={{
+              textAlign: "center",
+              marginTop: "0.5rem",
+              fontStyle: "italic",
+            }}
+          >
             Last Tracked: {data.tracking.date}
           </p>
         )}
@@ -65,14 +87,20 @@ const Dashboard = () => {
         <div className="dashboard-grid">
           <GoalCard
             label="Water Intake"
-            goal={data?.tracking?.waterIntake ? `${data.tracking.waterIntake} L` : "-"}
+            goal={
+              data?.tracking?.waterIntake
+                ? `${data.tracking.waterIntake} L`
+                : "-"
+            }
           />
 
           <GoalCard
             label="Cardio"
             goal={
               data?.tracking?.cardioDuration
-                ? `${data.tracking.cardioType || "Cardio"} – ${data.tracking.cardioDuration} min`
+                ? `${data.tracking.cardioType || "Cardio"} – ${
+                    data.tracking.cardioDuration
+                  } min`
                 : "-"
             }
           />
@@ -80,7 +108,8 @@ const Dashboard = () => {
           <GoalCard
             label="Cycling"
             goal={
-              data?.tracking?.cyclingDistance && data?.tracking?.cyclingDuration
+              data?.tracking?.cyclingDistance &&
+              data?.tracking?.cyclingDuration
                 ? `${data.tracking.cyclingDistance} km – ${data.tracking.cyclingDuration} min`
                 : "-"
             }
@@ -97,8 +126,12 @@ const Dashboard = () => {
           </div>
 
           <div className="dashboard-links">
-            <button onClick={() => (window.location.href = "/tracking")}>Track Workout</button>
-            <button onClick={() => (window.location.href = "/progress")}>View Progress</button>
+            <button onClick={() => (window.location.href = "/tracking")}>
+              Track Workout
+            </button>
+            <button onClick={() => (window.location.href = "/progress")}>
+              View Progress
+            </button>
           </div>
         </div>
       </div>
